@@ -1,7 +1,7 @@
 'use client';
 
-import { Button, TextField } from '@radix-ui/themes'
-import React from 'react'
+import { Button, TextField, Callout } from '@radix-ui/themes'
+import React, { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
@@ -17,15 +17,24 @@ const NewIssuePage = () => {
 
   const router = useRouter();
   const {register, control, handleSubmit} = useForm<IssueForm>();
+  const [error, setError] = useState('');
 
 
   return (
-    <div className='p-3'>
-        <form 
-        className='max-w-xl space-y-3'
+    <div className='p-3 max-w-xl space-y-3'>
+       {error && (
+        <Callout.Root color="red" className='mb-5'>
+          <Callout.Text>{error}</Callout.Text>
+        </Callout.Root>
+      )}
+        <form         
         onSubmit={handleSubmit(async (data) => {
-          await axios.post('/api/issues', data);
-          router.push('/issues')          
+          try {
+            await axios.post('/api/issues', data);
+            router.push('/issues')                      
+          } catch (error) {            
+            setError('An unexpected error occurred.');            
+          }
         })}
         >
         <TextField.Root>
