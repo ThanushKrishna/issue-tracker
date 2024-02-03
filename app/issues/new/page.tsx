@@ -10,6 +10,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import { createIssueSchema } from '@/app/validationSchema';
 import { z } from 'zod';
 import ErrorMessage from '@/app/components/ErrorMessage';
+import Spinner from '@/app/components/Spinner';
 import "easymde/dist/easymde.min.css";
 
 type IssueForm = z.infer<typeof createIssueSchema>;
@@ -23,6 +24,7 @@ const NewIssuePage = () => {
     }
   );
   const [error, setError] = useState('');
+  const [isSubmitted, setSubmitted] = useState(false);
 
 
   return (
@@ -35,9 +37,11 @@ const NewIssuePage = () => {
         <form         
         onSubmit={handleSubmit(async (data) => {
           try {
+            setSubmitted(true);
             await axios.post('/api/issues', data);
             router.push('/issues')                      
-          } catch (error) {            
+          } catch (error) {    
+            setSubmitted(false);        
             setError('An unexpected error occurred.');            
           }
         })}
@@ -54,7 +58,7 @@ const NewIssuePage = () => {
             )}>
         </Controller>        
         <ErrorMessage>{errors.description?.message}</ErrorMessage>        
-        <Button>Submit New Issue</Button>
+        <Button disabled={isSubmitted}> Submit New Issue {isSubmitted && <Spinner/> }</Button>
         </form>
     </div>
   )
