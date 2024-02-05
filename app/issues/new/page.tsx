@@ -45,7 +45,7 @@ const NewIssuePage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-        <form         
+        <form className='space-y-3'     
         onSubmit={onSubmit}
         >
         <TextField.Root>
