@@ -6,6 +6,7 @@ import IssueStatusBadge from '../../../app/components/IssueStatusBadge';
 import ReactMarkdown from 'react-markdown';
 
 
+
 interface Props {
     params: {id: string}
 }
@@ -18,6 +19,7 @@ const IssueDetailPage = async ( { params }: Props) => {
 
     if (!issue)
     notFound();
+    
 
 
     return (

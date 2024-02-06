@@ -12,10 +12,11 @@ import { z } from 'zod';
 import ErrorMessage from '@/app/components/ErrorMessage';
 import Spinner from '@/app/components/Spinner';
 import "easymde/dist/easymde.min.css";
+import delay from 'delay';
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
-const NewIssuePage = () => {
+const NewIssuePage = async () => {
 
   const router = useRouter();
   const {register, control, handleSubmit, formState: { errors }} = useForm<IssueForm>(
@@ -25,6 +26,7 @@ const NewIssuePage = () => {
   );
   const [error, setError] = useState('');
   const [isSubmitted, setSubmitted] = useState(false);
+  await delay(2000);
 
   const onSubmit = handleSubmit(async (data) => {
     try {
