@@ -9,8 +9,7 @@ import { useRouter } from 'next/navigation'
 import {zodResolver} from '@hookform/resolvers/zod';
 import { createIssueSchema } from '@/app/validationSchema';
 import { z } from 'zod';
-import ErrorMessage from '@/app/components/ErrorMessage';
-import Spinner from '@/app/components/Spinner';
+import { Spinner, ErrorMessage } from '../../../app/components';
 import "easymde/dist/easymde.min.css";
 import delay from 'delay';
 
@@ -30,7 +29,7 @@ const NewIssuePage = async () => {
   );
   const [error, setError] = useState('');
   const [isSubmitted, setSubmitted] = useState(false);
-  await delay(2000);
+  //await delay(2000);
 
   const onSubmit = handleSubmit(async (data) => {
     try {
