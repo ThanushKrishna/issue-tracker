@@ -43,4 +43,6 @@ const IssuesPage = async () => {
   )
 }
 
+export const dynamic = 'force-dynamic'; // to overide server side cache
+
 export default IssuesPage 

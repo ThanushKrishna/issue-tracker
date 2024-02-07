@@ -12,14 +12,10 @@ import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import ErrorMessage from '../../../app/components/ErrorMessage';
 import Spinner from '../../../app/components/Spinner';
+import SimpleMDE from 'react-simplemde-editor';
 import { createIssueSchema } from "../../../app/validationSchema";
 
-const SimpleMDE = dynamic(
-    () => import('react-simplemde-editor'), 
-    {
-        ssr: false,
-    }
-);
+
 
 type IssueFormData = z.infer<typeof createIssueSchema>;
 
@@ -44,6 +40,7 @@ const IssueForm = ({ issue }: { issue?: Issue } ) => {
       if (issue) await axios.patch('/api/issues/' + issue.id, data);
       else await axios.post('/api/issues', data);
       router.push('/issues');
+      router.refresh(); // to refresh the page to override the client side cache
     } catch (error) {
       setSubmitting(false);
       setError('An unexpected error occurred.');
