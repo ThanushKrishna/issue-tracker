@@ -39,7 +39,7 @@ const IssueForm = ({ issue }: { issue?: Issue } ) => {
       setSubmitting(true);
       if (issue) await axios.patch('/api/issues/' + issue.id, data);
       else await axios.post('/api/issues', data);
-      router.push('/issues');
+      router.push('/issues/list');
       router.refresh(); // to refresh the page to override the client side cache
     } catch (error) {
       setSubmitting(false);
