@@ -5,14 +5,13 @@ import { Issue } from '@prisma/client';
 import { Button, Callout, TextField } from '@radix-ui/themes';
 import axios from 'axios';
 import 'easymde/dist/easymde.min.css';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import SimpleMDE from 'react-simplemde-editor';
 import { z } from 'zod';
 import ErrorMessage from '../../../app/components/ErrorMessage';
 import Spinner from '../../../app/components/Spinner';
-import SimpleMDE from 'react-simplemde-editor';
 import { createIssueSchema } from "../../../app/validationSchema";
 
 
