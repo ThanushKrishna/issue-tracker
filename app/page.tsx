@@ -1,6 +1,6 @@
 "use client";
 
-import Pagination from './components/pagination'
+import LatestIssues from "./LatestIssues";
 
 export default function Home({
   searchParams,
@@ -8,7 +8,7 @@ export default function Home({
   searchParams: { page: string };
 }) {
   return (
-   <div>Hello</div>
+    <LatestIssues />
 
 );
 }
