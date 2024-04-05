@@ -4,6 +4,7 @@ import prisma from "../../../prisma/client";
 import Pagination from '../../components/pagination';
 import IssueActions from "./IssueActions";
 import IssueTable, { IssueQuery, columnNames } from './IssueTable';
+import { Metadata } from 'next';
 
 interface Props {
   searchParams: IssueQuery
@@ -50,6 +51,11 @@ const IssuesPage = async ({ searchParams }: Props) => {
       </Flex>
     </div>
   );
+};
+
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Issue List',
+  description: 'View all project issues'
 };
 
 export const dynamic = 'force-dynamic';
