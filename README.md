@@ -24,7 +24,7 @@ The Issue Tracker is a web application developed using Next.js Framework that al
 
 ## Production App
 
-Check out the production app at [Smart Leads](https://issue-tracker-eta-six.vercel.app) to experience firsthand
+Check out the production app at [Issue Tracker](https://issue-tracker-eta-six.vercel.app) to experience firsthand
 
 ## Next.js Full Stack Framework Features
 
