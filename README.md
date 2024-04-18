@@ -22,6 +22,10 @@ The Issue Tracker is a web application developed using Next.js Framework that al
 - **Backend**: Since Next.js is a full-stack application development framework, server-side logic, API routes and MySQL DB Integration for storing and managing issue data is also implemented with Next.js
 - **Deployment**: The application is deployed in Vercel and DB is deployed on the Google Cloud Platform (GCP) for scalability, reliability, and seamless integration with other GCP services.
 
+## Production App
+
+Check out the production app at [Smart Leads](https://issue-tracker-eta-six.vercel.app) to experience firsthand
+
 ## Next.js Full Stack Framework Features
 
 **Frontend Features:**
